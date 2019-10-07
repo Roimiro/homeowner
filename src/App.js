@@ -1,38 +1,40 @@
 import React from 'react';
 import './App.css';
-import {Switch, Route} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Messages from './pages/Messages'
 
 class App extends React.Component {
-  render (){
-    return(
+  render() {
+    return (
       <Switch>
         <Route exact path='/'>
-          <Home/>
+          <Home />
         </Route>
-        <Route path='/signup'>
-          <Signup/>
+        {/* <Route path='/signup'>
+          <Signup />
         </Route>
         <Routh path='/dashboardcommitte'>
-          <DashboardCommitte/>
+          <DashboardCommitte />
         </Routh>
         <Route path='/dashboardtenants'>
-          <DashboardTenats/>
+          <DashboardTenats />
         </Route>
         <Route path='/tenants'>
-        <Tenants/>
-        </Route>
+          <Tenants />
+        </Route> */}
         <Route path='/messages'>
-          <Messages/>
+          <Messages />
         </Route>
-        <Route path='/newmessage'>
-          <NewMessage/>
+        {/* <Route path='/newmessage'>
+          <NewMessage />
         </Route>
         <Routh path='/votings'>
-          <Votings/>
+          <Votings />
         </Routh>
         <Routh path='/newvoting'>
-          <NewVoting/>
-        </Routh>
+          <NewVoting />
+        </Routh> */}
       </Switch>
     )
   }
