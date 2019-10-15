@@ -1,6 +1,5 @@
 
-
-export class DataMessage {
+ class DataMessage {
     constructor(message){
     this.user = message.get('createdBy')
     this.title = message.get('title');
@@ -10,3 +9,5 @@ export class DataMessage {
     }
 
 }
+
+export default DataMessage

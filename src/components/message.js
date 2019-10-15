@@ -1,14 +1,39 @@
 import React from 'react';
-import {Row,Col,Image} from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
+import Parse from 'parse'
+import dataMessage from '../data/dataMessage'
+
+
 
 
 class Message extends React.Component {
-    render(){
-        return(
+    constructor(props){
+        super(props)
+        }
+        
+    
+    // componentDidMount (){
+    //     const Message = Parse.Object.extend('Message');
+    //     const query = new Parse.Query(Message);
+    //     query.find().then((results) => {
+    //         // You can use the "get" method to get the value of an attribute
+    //         // Ex: response.get("<ATTRIBUTE_NAME>")
+            
+    //         const messageArray = results.map(message => new dataMessage(message));
+    //         console.log(messageArray)
+    //         this.setState({message:messageArray})
+
+
+    //     }, (error) => {
+    //         console.error('Error while fetching Message', error);
+    //     });
+    // }
+    render() {
+        return (
             <div>
                 <Row>
                     <Col>
-                        <Image src="/171x180" rounded/>
+                        <Image src={ require('../data/house.jpeg') } rounded />
                     </Col>
                     <Col>
                         <div>
@@ -27,6 +52,7 @@ class Message extends React.Component {
             </div>
         )
     }
+
 
 }
 export default Message
