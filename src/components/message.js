@@ -12,22 +12,7 @@ class Message extends React.Component {
         }
         
     
-    // componentDidMount (){
-    //     const Message = Parse.Object.extend('Message');
-    //     const query = new Parse.Query(Message);
-    //     query.find().then((results) => {
-    //         // You can use the "get" method to get the value of an attribute
-    //         // Ex: response.get("<ATTRIBUTE_NAME>")
-            
-    //         const messageArray = results.map(message => new dataMessage(message));
-    //         console.log(messageArray)
-    //         this.setState({message:messageArray})
-
-
-    //     }, (error) => {
-    //         console.error('Error while fetching Message', error);
-    //     });
-    // }
+    
     render() {
         return (
             <div>
@@ -37,15 +22,8 @@ class Message extends React.Component {
                     </Col>
                     <Col>
                         <div>
-                            <p>Details:</p>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div>
-                            <p>
-
-                            </p>
-                            <p>Priority:</p>
+                            <p>Details:{this.props.mymessage.details}</p>
+                            <p>Priority:{this.props.mymessage.priority[0]}</p>
                         </div>
                     </Col>
                 </Row>

@@ -1,15 +1,24 @@
 import React from 'react'
 import { Form, Row, Col, DropdownButton, Dropdown, InputGroup, FormControl } from 'react-bootstrap'
+import './componentsStyle.css'
 
 
 
 class MessageSeacrhBar extends React.Component {
+    constructor(props){
+        super(props)
+        this.handleFilter = this.handleFilter.bind(this)
+    }
+    handleFilter(e){
+            e.preventDefault()
+            this.props.filter(e.target.value)
+    }
     render() {
         return (
-            <Form>
+            <Form className="formSearchBar">
                 <Row>
                     <Col lg={6}>
-                        <Form.Control type="text" placeholder="Filter BY Title" />
+                        <Form.Control type="text" placeholder="Filter BY Title" onChange={this.handleFilter}/>
                     </Col>
                     <Col lg={3}>
                         <InputGroup className="mb-3">
