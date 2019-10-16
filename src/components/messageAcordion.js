@@ -8,29 +8,28 @@ class MessageAcordion extends React.Component {
         super(props)
     }
     render() {
+        const accordionMap = this.props.messages.map((message, index) => {
+            return (<Card>
+                <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey={index}>
+                        {message.title}
+                    </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey={index}>
+                    <Card.Body><Message mymessage={message} /></Card.Body>
+                </Accordion.Collapse>
+            </Card>)
+        });
+
+
+
+
         return (
+            <div>
             <Accordion defaultActiveKey="0">
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                            Click me!
-      </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="0">
-                        <Card.Body><Message/></Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                            Click me!
-      </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="1">
-                        <Card.Body>Hello! I'm another body</Card.Body>
-                    </Accordion.Collapse>
-                </Card>
+                {accordionMap}
             </Accordion>
+            </div>
         )
     }
 }
