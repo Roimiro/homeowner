@@ -8,16 +8,21 @@ class MessageSeacrhBar extends React.Component {
     constructor(props){
         super(props)
         this.handleFilter = this.handleFilter.bind(this)
+        this.handlePriority = this.handlePriority.bind(this)
     }
     handleFilter(e){
             e.preventDefault()
             this.props.filter(e.target.value)
     }
+    handlePriority(e){
+        
+        this.props.priorityFilter(e)
+    }
     render() {
         return (
             <Form className="formSearchBar">
                 <Row>
-                    <Col lg={6}>
+                    <Col lg={5}>
                         <Form.Control type="text" placeholder="Filter BY Title" onChange={this.handleFilter}/>
                     </Col>
                     <Col lg={3}>
@@ -27,17 +32,18 @@ class MessageSeacrhBar extends React.Component {
                                 variant="outline-secondary"
                                 title="Filter BY Priority"
                                 id="input-group-dropdown-1"
+                                onSelect={this.handlePriority}
                             >
-                                <Dropdown.Item href="#">urgent</Dropdown.Item>
-                                <Dropdown.Item href="#">important</Dropdown.Item>
-                                <Dropdown.Item href="#">normal</Dropdown.Item>
+                                <Dropdown.Item eventKey="1">urgent</Dropdown.Item>
+                                <Dropdown.Item eventKey="2">important</Dropdown.Item>
+                                <Dropdown.Item eventKey="3">normal</Dropdown.Item>
 
                             </DropdownButton>
 
                         </InputGroup>
 
                     </Col>
-                    <Col lg={1}>
+                    <Col lg={2}>
                     <Form.Label>Sort BY:</Form.Label>
                     </Col>
                     <Col lg={1}>
