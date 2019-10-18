@@ -17,6 +17,10 @@ class MessageSeacrhBar extends React.Component {
     handlePriority(e) {
         this.props.priorityFilter(e.target.value)
     }
+    handleDateSort(e){
+       
+     this.props.dateSort(e.target.checked)
+    }
     render() {
         return (
             <Form className="formSearchBar">
@@ -40,7 +44,7 @@ class MessageSeacrhBar extends React.Component {
                         <Form.Label>Sort BY:</Form.Label>
                     </Col>
                     <Col lg={1}>
-                        <Form.Check type="checkbox" label="Date" />
+                        <Form.Check type="checkbox" label="Date" onChange={this.handleDateSort}/>
                     </Col>
                     <Col lg={1}>
                         <Form.Check type="checkbox" label="Priority" />

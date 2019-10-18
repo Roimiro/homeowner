@@ -25,6 +25,7 @@ class Messages extends React.Component {
         this.titleHandler = this.titleHandler.bind(this)
         this.detailsHandler = this.detailsHandler.bind(this)
         this.priorityHandler = this.priorityHandler.bind(this)
+        this.searchBarDateSort =this.searchBarDateSort.bind(this)
     }
     //lifting title state up form messageModal
     titleHandler(title) {
@@ -110,6 +111,9 @@ class Messages extends React.Component {
 
         }
     }
+    searchBarDateSort(){
+
+    }
      
     parseIntialQuery() {
         const Message = Parse.Object.extend('Message');
@@ -156,7 +160,12 @@ class Messages extends React.Component {
                 <div>
                     <NavHeader />
                     <Container>
-                        <MessageSearchBar filter={this.searchBarFilter} priorityFilter={this.searchBarPriorityFilter} />
+                        <MessageSearchBar 
+                        filter={this.searchBarFilter}
+                         priorityFilter={this.searchBarPriorityFilter} 
+                         dateSort={this.searchBarDateSort}
+                         prioritySort={this.searchBarprioritySort}
+                         />
                         <Button className='btnMsg' variant="primary" onClick={this.setModalShow}>New Message</Button>
                         <MyVerticallyCenteredModal
                             show={this.state.setModalShow}
