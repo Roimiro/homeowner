@@ -44,6 +44,20 @@ class Messages extends React.Component {
     submitHandler() {
         const Message = Parse.Object.extend('Message');
         const myNewObject = new Message();
+        myNewObject.set('createdBy', Parse.User.current());
+        myNewObject.set('title', this.state.title);
+        myNewObject.set('details', this.state.details);
+        myNewObject.set('priority', [this.state.priority]);
+        myNewObject.save().then(
+            (result) => {
+              console.log('ParseObject created', result);
+            },
+            (error) => {
+              
+              console.error('Error while creating ParseObject: ', error);
+            })
+        
+            this.parseIntialQuery();
 
     }
     setModalShow(e) {
