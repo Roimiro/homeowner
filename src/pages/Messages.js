@@ -91,7 +91,26 @@ class Messages extends React.Component {
     }
     searchBarPriorityFilter(value) {
         console.log(value)
+        if (value) {
+            const filter = Parse.Object.extend('Message');
+            const query = new Parse.Query(filter);
+            query.equalTo('priority', value )
+            query.find().then((results) => {
+                // You can use the "get" method to get the value of an attribute
+                // Ex: response.get("<ATTRIBUTE_NAME>")
+
+                const messageArray = results.map(message => new dataMessage(message));
+                this.setState({ message: messageArray })
+
+            }, (error) => {
+                console.error('Error while fetching Message', error);
+            });
+        } else {
+            this.parseIntialQuery();
+
+        }
     }
+     
     parseIntialQuery() {
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
@@ -117,7 +136,7 @@ class Messages extends React.Component {
                 <div>
                     <NavHeader />
                     <Container>
-                        <MessageSearchBar />
+                        <MessageSearchBar filter={this.searchBarFilter} priorityFilter={this.searchBarPriorityFilter} />
                         <Button className='btnMsg' variant="primary" onClick={this.setModalShow}>New Message</Button>
                         <MyVerticallyCenteredModal
                             show={this.state.setModalShow}
