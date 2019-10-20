@@ -75,16 +75,7 @@ class Messages extends React.Component {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
             query.fullText('title', value)
-            query.find().then((results) => {
-                // You can use the "get" method to get the value of an attribute
-                // Ex: response.get("<ATTRIBUTE_NAME>")
-
-                const messageArray = results.map(message => new dataMessage(message));
-                this.setState({ message: messageArray })
-
-            }, (error) => {
-                console.error('Error while fetching Message', error);
-            });
+            this.QueryMapping(query)
         } else {
             this.parseIntialQuery();
 
@@ -96,25 +87,36 @@ class Messages extends React.Component {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
             query.equalTo('priority', value )
-            query.find().then((results) => {
-                // You can use the "get" method to get the value of an attribute
-                // Ex: response.get("<ATTRIBUTE_NAME>")
-
-                const messageArray = results.map(message => new dataMessage(message));
-                this.setState({ message: messageArray })
-
-            }, (error) => {
-                console.error('Error while fetching Message', error);
-            });
+            this.QueryMapping(query)
+            
         } else {
             this.parseIntialQuery();
 
         }
     }
-    searchBarDateSort(){
-
+    searchBarDateSort(SortChecked){
+        
+        const Message = Parse.Object.extend('Message');
+        const query = new Parse.Query(Message);
+        query.descending('createdAt')
+        if(SortChecked){
+        this.QueryMapping(query)
+    }else{
+        this.parseIntialQuery();
     }
-     
+    }
+     QueryMapping(query){
+        query.find().then((results) => {
+            // You can use the "get" method to get the value of an attribute
+            // Ex: response.get("<ATTRIBUTE_NAME>")
+
+            const messageArray = results.map(message => new dataMessage(message));
+            this.setState({ message: messageArray })
+
+        }, (error) => {
+            console.error('Error while fetching Message', error);
+        });
+     }
     parseIntialQuery() {
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
@@ -140,7 +142,12 @@ class Messages extends React.Component {
                 <div>
                     <NavHeader />
                     <Container>
-                        <MessageSearchBar filter={this.searchBarFilter} priorityFilter={this.searchBarPriorityFilter} />
+                        <MessageSearchBar 
+                        filter={this.searchBarFilter}
+                         priorityFilter={this.searchBarPriorityFilter}
+                         dateSort={this.searchBarDateSort}
+                         prioritySort={this.searchBarprioritySort}
+                          />
                         <Button className='btnMsg' variant="primary" onClick={this.setModalShow}>New Message</Button>
                         <MyVerticallyCenteredModal
                             show={this.state.setModalShow}

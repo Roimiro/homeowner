@@ -9,6 +9,7 @@ class MessageSeacrhBar extends React.Component {
         super(props)
         this.handleFilter = this.handleFilter.bind(this)
         this.handlePriority = this.handlePriority.bind(this)
+        this.handleDateSort = this.handleDateSort.bind(this)
     }
     handleFilter(e) {
         e.preventDefault()
