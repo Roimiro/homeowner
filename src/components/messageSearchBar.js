@@ -32,7 +32,7 @@ class MessageSeacrhBar extends React.Component {
                     <Col lg={3}>
                         <InputGroup className="mb-3">
                             <Form.Control as="select" onChange={this.handlePriority} >
-                                <option value=""  selected>Filter By Priority</option>
+                                <option value=""  defaultValue>Filter By Priority</option>
                                 <option value='normal'>normal</option>
                                 <option value='important'>important</option>
                                 <option value='urgent'>urgent</option>

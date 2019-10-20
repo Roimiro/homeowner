@@ -1,7 +1,5 @@
 import React from 'react';
-import { Row, Col, Image } from 'react-bootstrap'
-import Parse from 'parse'
-import dataMessage from '../data/dataMessage'
+import { Row, Col, Image, Button } from 'react-bootstrap'
 
 
 
@@ -9,6 +7,7 @@ import dataMessage from '../data/dataMessage'
 class Message extends React.Component {
     constructor(props){
         super(props)
+        
         }
         
     
@@ -26,6 +25,7 @@ class Message extends React.Component {
                             <p>Priority:{this.props.mymessage.priority[0]}</p>
                         </div>
                     </Col>
+                
                 </Row>
             </div>
         )
