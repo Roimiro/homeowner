@@ -33,7 +33,6 @@ class Votings extends React.Component {
         this.votingIntialData()
     }
     render() {
-        if (this.state.voting[0] === 'test') {
             return (
                 <div>
                     <NavHeader />
@@ -41,7 +40,7 @@ class Votings extends React.Component {
                         <Row>
                             <Col>
                                 <h1>Active Votings</h1>
-
+                                {(this.state.voting[0]==='test')? <div></div>:<VotingAccordion voting={this.state.voting} />}
                             </Col>
                             <Col>
                                 <h1>Votings Results</h1>
@@ -50,24 +49,7 @@ class Votings extends React.Component {
                     </Container>
                 </div>
             )
-        } else {
-            return (
-                <div>
-                    <NavHeader />
-                    <Container>
-                        <Row>
-                            <Col>
-                                <h1>Active Votings</h1>
-                                <VotingAccordion voting={this.state.voting} />
-                            </Col>
-                            <Col>
-                                <h1>Votings Results</h1>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
-            )
-        }
+        
     }
 }
 export default Votings

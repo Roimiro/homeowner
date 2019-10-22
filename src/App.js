@@ -12,10 +12,7 @@ class App extends React.Component {
         <Route exact path='/'>
           <Home />
         </Route>
-        {/* <Route path='/signup'>
-          <Signup />
-        </Route>
-        <Routh path='/dashboardcommitte'>
+        {/*<Routh path='/dashboardcommitte'>
           <DashboardCommitte />
         </Routh>
         <Route path='/dashboardtenants'>

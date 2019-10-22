@@ -18,7 +18,7 @@ class Voting extends React.Component {
                 <Row>
                     <Col>
                             <h4>Details:</h4> <p>{this.props.vote.details}</p>
-                          <h4>End Date:</h4>  <p>{this.props.vote.dueDate.toString()}</p>
+                          <h4>End Date:</h4>  <p>{this.props.vote.dueDate.toString().slice(0,21)}</p>
                     </Col>
                 
                 </Row>
