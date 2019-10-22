@@ -6,7 +6,6 @@ import MessageSearchBar from '../components/messageSearchBar'
 import { Container, Button } from 'react-bootstrap'
 import dataMessage from '../data/dataMessage'
 import MyVerticallyCenteredModal from '../components/newMessageModal'
-import { returnStatement } from '@babel/types';
 
 class Messages extends React.Component {
     constructor(props) {

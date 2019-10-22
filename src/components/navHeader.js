@@ -21,6 +21,7 @@ class NavHeader extends React.Component {
             
         </Nav>
         <Nav>
+            <Nav.Link href="#deets">Sign up</Nav.Link>
             <Nav.Link href="#deets">Logout</Nav.Link>
             <Nav.Link href="#deets">Login</Nav.Link>
         </Nav>

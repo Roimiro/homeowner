@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Messages from './pages/Messages'
+import Votings from './pages/Votings'
 
 class App extends React.Component {
   render() {
@@ -28,13 +29,13 @@ class App extends React.Component {
         </Route>
         {/* <Route path='/newmessage'>
           <NewMessage />
-        </Route>
-        <Routh path='/votings'>
+        </Route> */}
+        <Route path='/votings'>
           <Votings />
-        </Routh>
-        <Routh path='/newvoting'>
+        </Route>
+        {/* <Route path='/newvoting'>
           <NewVoting />
-        </Routh> */}
+        </Route> */}
       </Switch>
     )
   }
