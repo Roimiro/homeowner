@@ -17,8 +17,8 @@ class Voting extends React.Component {
             <div>
                 <Row>
                     <Col>
-                            <p>Details:</p>
-                            <p>End Date:</p>
+                            <h4>Details:</h4> <p>{this.props.vote.details}</p>
+                          <h4>End Date:</h4>  <p>{this.props.vote.dueDate.toString()}</p>
                     </Col>
                 
                 </Row>

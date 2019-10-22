@@ -2,7 +2,7 @@ import React from 'react'
 import Voting from './voting'
 import { Accordion, Card, Button } from 'react-bootstrap'
 
-class VotingAcordion extends React.Component {
+class VotingAccordion extends React.Component {
     constructor(props) {
         super(props)
         
@@ -11,16 +11,16 @@ class VotingAcordion extends React.Component {
     
 
     render() {
-        const accordionMap = this.props.voting.map((voting, index) => {
-            return (<Card key={voting.id}>
+        const accordionMap = this.props.voting.map((votes, index) => {
+            return (<Card key={votes.id}>
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey={index}>
-                        {voting.title}
+                        {votes.title}
                         
                     </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={index}>
-                    <Card.Body><Voting vote={voting} />
+                    <Card.Body><Voting vote={votes} />
                     
                     </Card.Body>
                 </Accordion.Collapse>
@@ -39,4 +39,4 @@ class VotingAcordion extends React.Component {
         )
     }
 }
-export default VotingAcordion;
+export default VotingAccordion;
