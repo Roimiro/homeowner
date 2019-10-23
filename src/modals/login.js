@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Form, Col, Row, Button } from 'react-bootstrap'
 import Parse from 'parse'
+import User from '../data/dataUser'
 
 class Login extends React.Component {
   constructor(props) {
@@ -15,17 +16,18 @@ class Login extends React.Component {
     this.loginHandler = this.loginHandler.bind(this)
   }
 userNameHandler(e){
-  console.log(e.target.value)
+ 
   this.setState({userName:e.target.value})
 }
 passowrdHandler (e){
-  console.log(e.target.value)
+  
   this.setState({password:e.target.value})
 }
 loginHandler(){
   Parse.User.logIn(this.state.userName,this.state.password).then((user)=>{
+    this.props.loggeduser(new User(user))
     this.setState({isLoggedIn:true})
-  console.log('Logged in user', user)
+  
   }).catch(error => {
     console.error('Error while logging in user', error);
   });

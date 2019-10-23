@@ -1,6 +1,6 @@
 import React from 'react';
 import Parse from 'parse';
-import NavHeader from '../components/navHeader'
+
 import { Container, Row, Col } from 'react-bootstrap'
 import dataVoting from '../data/dataVotings'
 import VotingAccordion from '../components/Votings Componnets/votingAccordion'
@@ -35,7 +35,7 @@ class Votings extends React.Component {
     render() {
             return (
                 <div>
-                    <NavHeader />
+                    
                     <Container>
                         <Row>
                             <Col>

@@ -1,7 +1,7 @@
 import React from 'react';
 import MessageAcordiong from '../components/messageAcordion'
 import Parse from 'parse'
-import NavHeader from '../components/navHeader'
+
 import MessageSearchBar from '../components/messageSearchBar'
 import { Container, Button } from 'react-bootstrap'
 import dataMessage from '../data/dataMessage'
@@ -75,6 +75,7 @@ class Messages extends React.Component {
         if (value) {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
+            query.equalTo("createdBy", this.props.acactiveuser);
             query.fullText('title', value)
             this.QueryMapping(query)
         } else {
@@ -87,6 +88,7 @@ class Messages extends React.Component {
         if (value) {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
+            query.equalTo("createdBy", this.props.acactiveuser);
             query.equalTo('priority', value)
             this.QueryMapping(query)
 
@@ -99,6 +101,7 @@ class Messages extends React.Component {
 
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
+        query.equalTo("createdBy", this.props.acactiveuser);
         query.descending('createdAt')
         if (SortChecked) {
             this.QueryMapping(query)
@@ -121,6 +124,7 @@ class Messages extends React.Component {
     parseIntialQuery() {
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
+        query.equalTo("createdBy", this.props.acactiveuser);
         query.find().then((results) => {
             // You can use the "get" method to get the value of an attribute
             // Ex: response.get("<ATTRIBUTE_NAME>")
@@ -154,7 +158,7 @@ class Messages extends React.Component {
             return (
 
                 <div>
-                    <NavHeader />
+                    
                     <Container>
                         <MessageSearchBar
                             filter={this.searchBarFilter}
@@ -179,7 +183,7 @@ class Messages extends React.Component {
             return (
 
                 <div>
-                    <NavHeader />
+                   
                     <Container>
                         <MessageSearchBar
                             filter={this.searchBarFilter}

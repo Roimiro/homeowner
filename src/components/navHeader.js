@@ -2,15 +2,18 @@ import React from 'react'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Login from '../modals/login'
 
+
 class NavHeader extends React.Component {
     constructor() {
         super()
         this.state = {
             setLoginModal:false,
+            activeUser:null
            
         }
         this.loginModal = this.loginModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.handleLogin = this.handleLogin.bind(this)
     }
     loginModal(){
         if(this.state.setLoginModal){
@@ -26,7 +29,10 @@ class NavHeader extends React.Component {
             this.setState({setLoginModal:false})
         }
     }
-
+    handleLogin(user){
+        this.setState({activeUser:user.id})
+        this.props.activeuser(user)
+    }
     
     
 
@@ -36,6 +42,8 @@ class NavHeader extends React.Component {
     <Login 
     show={this.state.setLoginModal}
     onHide={this.closeModal}
+    loggeduser= {this.handleLogin}
+    
      />
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Navbar.Brand href="#home">HOA Systems</Navbar.Brand>

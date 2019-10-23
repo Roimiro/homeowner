@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Messages from './pages/Messages'
 import Votings from './pages/Votings'
+import NavHeader from './components/navHeader'
 
 class App extends React.Component {
   constructor(props){
@@ -11,9 +12,17 @@ class App extends React.Component {
     this.state ={
       activeUser : null,
     }
+    this.handleActiveUser = this.handleActiveUser.bind(this)
+  }
+  handleActiveUser(user){
+      this.setState({activeUser:user.id})
   }
   render() {
+
+    const {activeUser} = this.state;
     return (
+      <div>
+        <NavHeader activeuser={this.handleActiveUser}/>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -28,7 +37,7 @@ class App extends React.Component {
           <Tenants />
         </Route> */}
         <Route path='/messages'>
-          <Messages />
+          <Messages activeuser={activeUser}/>
         </Route>
         {/* <Route path='/newmessage'>
           <NewMessage />
@@ -40,6 +49,7 @@ class App extends React.Component {
           <NewVoting />
         </Route> */}
       </Switch>
+      </div>
     )
   }
 }
