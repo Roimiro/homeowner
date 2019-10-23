@@ -7,24 +7,35 @@ class NavHeader extends React.Component {
         super()
         this.state = {
             setLoginModal:false,
+           
         }
         this.loginModal = this.loginModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
     loginModal(){
         if(this.state.setLoginModal){
             this.setState({setLoginModal:false})
-        }else {
+        }else{
             this.setState({setLoginModal:true})
+           
         }
         
     }
+    closeModal(bol){
+        if(bol===false){
+            this.setState({setLoginModal:false})
+        }
+    }
+
+    
+    
 
     render(){
         return(
     <div>
     <Login 
     show={this.state.setLoginModal}
-    onHide={this.state.setLoginModal}
+    onHide={this.closeModal}
      />
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Navbar.Brand href="#home">HOA Systems</Navbar.Brand>

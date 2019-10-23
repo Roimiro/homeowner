@@ -1,10 +1,38 @@
 import React from 'react'
 import { Modal, Form, Col, Row, Button } from 'react-bootstrap'
+import Parse from 'parse'
 
 class Login extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      userName: "",
+      password: "",
+      isLoggedIn:false,
+    }
+    this.userNameHandler =this.userNameHandler.bind(this)
+    this.passowrdHandler = this.passowrdHandler.bind(this)
+    this.loginHandler = this.loginHandler.bind(this)
   }
+userNameHandler(e){
+  console.log(e.target.value)
+  this.setState({userName:e.target.value})
+}
+passowrdHandler (e){
+  console.log(e.target.value)
+  this.setState({password:e.target.value})
+}
+loginHandler(){
+  Parse.User.logIn(this.state.userName,this.state.password).then((user)=>{
+    this.setState({isLoggedIn:true})
+  console.log('Logged in user', user)
+  }).catch(error => {
+    console.error('Error while logging in user', error);
+  });
+  }
+  
+  
+
 
   render() {
     return (
@@ -26,7 +54,7 @@ class Login extends React.Component {
                 user
     </Form.Label>
               <Col sm={10}>
-                <Form.Control type="email" placeholder="user name" />
+                <Form.Control type="email" placeholder="user name" onBlur={this.userNameHandler}/>
               </Col>
             </Form.Group>
 
@@ -35,18 +63,18 @@ class Login extends React.Component {
                 Password
     </Form.Label>
               <Col sm={10}>
-                <Form.Control type="password" placeholder="password" />
+                <Form.Control type="password" placeholder="password" onBlur={this.passowrdHandler}/>
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Col lg={{ span: 3, offset: 9 }} sm={{ span: 10, offset: 2 }}>
-                <Button type="btn">Login</Button>
+                <Button type="btn" onClick={this.loginHandler}>Login</Button>
               </Col>
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={()=>this.props.onHide(false)}>Close</Button>
         </Modal.Footer>
       </Modal>
     )

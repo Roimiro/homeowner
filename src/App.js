@@ -6,6 +6,12 @@ import Messages from './pages/Messages'
 import Votings from './pages/Votings'
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      activeUser : null,
+    }
+  }
   render() {
     return (
       <Switch>
