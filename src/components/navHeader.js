@@ -60,7 +60,7 @@ class NavHeader extends React.Component {
         <Nav>
             <Nav.Link href="#/signup">Signup</Nav.Link>
             <Nav.Link href="#deets">Logout</Nav.Link>
-            <Nav.Link onClick={this.loginModal}>Login</Nav.Link>
+            <Nav.Link onClick={this.loginModal} >Login</Nav.Link>
         </Nav>
     </Navbar.Collapse>
 </Navbar>

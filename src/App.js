@@ -43,7 +43,7 @@ class App extends React.Component {
           <NewMessage />
         </Route> */}
         <Route path='/votings'>
-          <Votings />
+          <Votings activeuser={activeUser} />
         </Route>
         {/* <Route path='/newvoting'>
           <NewVoting />

@@ -17,6 +17,7 @@ class Votings extends React.Component {
     votingIntialData() {
         const Voting = Parse.Object.extend('Voting');
         const query = new Parse.Query(Voting);
+        
         query.find().then((results) => {
 
             const votingData = results.map((voting) => new dataVoting(voting));
