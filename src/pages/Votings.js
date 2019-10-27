@@ -25,7 +25,7 @@ class Votings extends React.Component {
     }
 
     voteHandler (){
-       alert('clicked')
+       
     }
     votingIntialData() {
         const Voting = Parse.Object.extend('Voting');

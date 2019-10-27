@@ -1,9 +1,15 @@
 import React from 'react'
+import {Jumbotron, Container} from 'react-bootstrap'
 
 class Home extends React.Component{
     render(){
         return(
-            <h1>home page</h1>
+            <Container>
+                <Jumbotron>
+                    <h1>Home Association Management System</h1>
+                    
+                </Jumbotron>
+            </Container>
         )
     }
 }
