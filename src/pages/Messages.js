@@ -1,7 +1,6 @@
 import React from 'react';
 import MessageAcordiong from '../components/messageAcordion'
 import Parse from 'parse'
-
 import MessageSearchBar from '../components/messageSearchBar'
 import { Container, Button } from 'react-bootstrap'
 import dataMessage from '../data/dataMessage'
@@ -43,6 +42,7 @@ class Messages extends React.Component {
         this.setState({ priority })
     }
 
+    
     submitHandler() {
         const Message = Parse.Object.extend('Message');
         const myNewObject = new Message();

@@ -11,8 +11,21 @@ class Votings extends React.Component {
         super()
         this.state = {
             voting: ['test'],
+            options:""
         }
         this.votingIntialData = this.votingIntialData.bind(this)
+        this.optionsHandler = this.optionsHandler.bind(this)
+        this.voteHandler =this.voteHandler.bind(this)
+    }
+
+    optionsHandler (val){
+        this.setState({
+            options:val
+        })
+    }
+
+    voteHandler (){
+       alert('clicked')
     }
     votingIntialData() {
         const Voting = Parse.Object.extend('Voting');
@@ -41,7 +54,7 @@ class Votings extends React.Component {
                         <Row>
                             <Col>
                                 <h1>Active Votings</h1>
-                                {(this.state.voting[0]==='test')? <div></div>:<VotingAccordion voting={this.state.voting} />}
+                                {(this.state.voting[0]==='test')? <div></div>:<VotingAccordion voting={this.state.voting} options={this.optionsHandler} voteClicked={this.voteHandler} />}
                             </Col>
                             <Col>
                                 <h1>Votings Results</h1>

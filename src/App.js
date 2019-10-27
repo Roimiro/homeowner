@@ -10,19 +10,19 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state ={
-      activeUser : null,
+      activeUserId : null,
     }
     this.handleActiveUser = this.handleActiveUser.bind(this)
   }
   handleActiveUser(user){
-      this.setState({activeUser:user.id})
+      this.setState({activeUserId:user.id });
   }
   render() {
 
-    const {activeUser} = this.state;
+    const {activeUserId} = this.state;
     return (
       <div>
-        <NavHeader activeuser={this.handleActiveUser}/>
+        <NavHeader activeuser={this.handleActiveUser} />
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -37,13 +37,10 @@ class App extends React.Component {
           <Tenants />
         </Route> */}
         <Route path='/messages'>
-          <Messages activeuser={activeUser}/>
+          <Messages activeuser={activeUserId}/>
         </Route>
-        {/* <Route path='/newmessage'>
-          <NewMessage />
-        </Route> */}
         <Route path='/votings'>
-          <Votings activeuser={activeUser} />
+          <Votings activeuser={activeUserId} />
         </Route>
         {/* <Route path='/newvoting'>
           <NewVoting />

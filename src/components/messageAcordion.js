@@ -1,7 +1,8 @@
 
 import React from 'react'
 import Message from './message'
-import { Accordion, Card, Button } from 'react-bootstrap'
+import { Accordion, Card, Button ,Row} from 'react-bootstrap'
+import Comments from '../components/comments'
 
 class MessageAcordion extends React.Component {
     constructor(props) {
@@ -16,14 +17,19 @@ class MessageAcordion extends React.Component {
         const accordionMap = this.props.messages.map((message, index) => {
             return (<Card key={message.id}>
                 <Card.Header>
+
                     <Accordion.Toggle as={Button} variant="link" eventKey={index}>
                         {message.title}
                         
                     </Accordion.Toggle>
+                    <Button onClick={(e) => this.btnDeleteHandler(e,message.id)} variant="danger">Delete</Button>
                 </Card.Header>
                 <Accordion.Collapse eventKey={index}>
-                    <Card.Body><Message mymessage={message} />
-                    <Button onClick={(e) => this.btnDeleteHandler(e,message.id)} variant="danger">Delete</Button>
+                    <Card.Body>
+                        <Row>
+                        <Message mymessage={message} />
+                                <Comments/>
+                         </Row>
                     </Card.Body>
                 </Accordion.Collapse>
             </Card>)

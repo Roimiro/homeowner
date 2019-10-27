@@ -56,7 +56,7 @@ loginHandler(){
                 user
     </Form.Label>
               <Col sm={10}>
-                <Form.Control type="email" placeholder="user name" onBlur={this.userNameHandler}/>
+                <Form.Control type="text" placeholder="user name" onBlur={this.userNameHandler}/>
               </Col>
             </Form.Group>
 

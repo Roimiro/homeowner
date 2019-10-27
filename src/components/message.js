@@ -15,7 +15,7 @@ class Message extends React.Component {
     render() {
         return (
             <div>
-                <Row>
+                    <Row>
                     <Col>
                         <Image src={ require('../data/house.jpeg') } rounded />
                     </Col>
@@ -25,8 +25,8 @@ class Message extends React.Component {
                             <p>Priority:{this.props.mymessage.priority[0]}</p>
                         </div>
                     </Col>
+                    </Row>
                 
-                </Row>
             </div>
         )
     }
