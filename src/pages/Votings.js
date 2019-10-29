@@ -6,6 +6,7 @@ import dataVoting from '../data/dataVotings'
 import VotingAccordion from '../components/Votings Componnets/votingAccordion'
 
 
+
 class Votings extends React.Component {
     constructor() {
         super()
@@ -25,7 +26,29 @@ class Votings extends React.Component {
     }
 
     voteHandler (){
-       
+        const myVote= {
+                user:this.state.voting[0].user,
+                option:this.state.voting[0].options[this.state.options]
+            }
+            
+        const Voting = Parse.Object.extend('Voting');
+        const query = new Parse.Query(Voting);
+        query.get(this.state.voting[0].id).then((object) =>{
+            object.add('vote',[myVote])
+            object.save().then((response) => {
+                // You can use the "get" method to get the value of an attribute
+                // Ex: response.get("<ATTRIBUTE_NAME>")
+                
+                console.log('Updated Voting', response);
+              }, (error) => {
+                
+                console.error('Error while updating Voting', error);
+              });
+        });
+
+
+
+        
     }
     votingIntialData() {
         const Voting = Parse.Object.extend('Voting');

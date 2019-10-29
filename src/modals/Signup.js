@@ -7,6 +7,10 @@ class Signup extends React.Component{
         super(props)
     }
 
+    signupHandler (){
+      
+    }
+
     render(){
         return(
             <Modal
@@ -22,35 +26,56 @@ class Signup extends React.Component{
       </Modal.Header>
       <Modal.Body>
       <Form>
-  <Form.Group as={Row} controlId="formHorizontalEmail">
+  <Form.Group as={Row} controlId="formHorizontalName">
     <Form.Label column sm={2}>
-      Title
+      Name
     </Form.Label>
     <Col sm={10}>
-      <Form.Control type="text" placeholder="Title" onChange={this.titleHandlerModal}/>
+      <Form.Control type="text" placeholder="name"/>
     </Col>
   </Form.Group>
 
-  <Form.Group as={Row} controlId="formHorizontalPassword">
+  <Form.Group as={Row} controlId="formHorizontalEmail">
     <Form.Label column sm={2}>
-      Details
+      Email
     </Form.Label>
     <Col sm={10}>
-      <Form.Control as="textarea" placeholder="Details" onChange={this.detailsHandlerModal}/>
+      <Form.Control as="textarea" placeholder="Email"/>
     </Col>
   </Form.Group>
   <Form.Group as={Row} controlId="formHorizontalPassword">
     <Form.Label column sm={2}>
-      Priority
+      Password
     </Form.Label>
     <Col sm={10}>
-      <Form.Control as="select" onChange={this.priorityHandlerModal}>
-      <option value='normal'>normal</option>
-      <option value='important'>important</option>
-      <option value='urgent'>urgent</option>
-      </Form.Control>
+      <Form.Control as="password" placeholder="password"/>
     </Col>
   </Form.Group>
+  <Form.Group as={Row} controlId="formHorizontalBuilding">
+    <Form.Label column sm={2}>
+      Building/Condominium Community Name
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Building/Condominium Community Name"/>
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row} controlId="formHorizontalAddress">
+    <Form.Label column sm={2}>
+      Address
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="Address"/>
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row} controlId="formHorizontalName">
+    <Form.Label column sm={2}>
+      City
+    </Form.Label>
+    <Col sm={10}>
+      <Form.Control type="text" placeholder="City"/>
+    </Col>
+  </Form.Group>
+  
   <Form.Group as={Row}>
     <Col lg={{span:3 ,offset:9}} sm={{ span: 10, offset: 2 }}>
       <Button type="btn" onClick={this.modalSubmitHandler}>Add new message</Button>

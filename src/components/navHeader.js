@@ -39,6 +39,7 @@ class NavHeader extends React.Component {
     
 
     render(){
+        console.log(this.state.activeUser)
         return(
     <div>
     <Login 
@@ -59,7 +60,7 @@ class NavHeader extends React.Component {
             <Nav.Link href="#/votings">Votings</Nav.Link>
             
         </Nav>
-        {this.state.activeuser !== null ? (<Nav>
+        {this.state.activeuser != null ? (<Nav>
             <Nav.Link href="#deets">Logout</Nav.Link>
             <Nav.Link >Hello {this.state.activeUserName}</Nav.Link>
                      </Nav>) : (<Nav>
