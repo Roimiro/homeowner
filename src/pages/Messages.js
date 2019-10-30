@@ -75,7 +75,7 @@ class Messages extends React.Component {
         if (value) {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
-            query.equalTo("createdBy", this.props.acactiveuser);
+            // query.equalTo("createdBy", this.props.acactiveuser);
             query.fullText('title', value)
             this.QueryMapping(query)
         } else {
@@ -88,7 +88,7 @@ class Messages extends React.Component {
         if (value) {
             const filter = Parse.Object.extend('Message');
             const query = new Parse.Query(filter);
-            query.equalTo("createdBy", this.props.acactiveuser);
+            // query.equalTo("createdBy", this.props.acactiveuser);
             query.equalTo('priority', value)
             this.QueryMapping(query)
 
@@ -101,7 +101,7 @@ class Messages extends React.Component {
 
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
-        query.equalTo("createdBy", this.props.acactiveuser);
+        // query.equalTo("createdBy", this.props.acactiveuser);
         query.descending('createdAt')
         if (SortChecked) {
             this.QueryMapping(query)
@@ -125,7 +125,7 @@ class Messages extends React.Component {
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
         
-        query.equalTo("createdBy", Parse.User.current);
+        // query.equalTo("createdBy", Parse.User.current);
         console.log(this.props.activeuser)
         query.find().then((results) => {
             // You can use the "get" method to get the value of an attribute

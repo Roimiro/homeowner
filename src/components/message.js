@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Image,  } from 'react-bootstrap'
+import User from '../data/dataUser'
 
 
 
@@ -13,6 +14,8 @@ class Message extends React.Component {
     
     
     render() {
+       
+        
         return (
             <div>
                     <Row>
