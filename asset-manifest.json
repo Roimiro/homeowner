@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/homeowner/static/css/main.c6e4c32f.chunk.css",
+    "main.js": "/homeowner/static/js/main.5de165ce.chunk.js",
+    "main.js.map": "/homeowner/static/js/main.5de165ce.chunk.js.map",
+    "runtime-main.js": "/homeowner/static/js/runtime-main.e5a489f0.js",
+    "runtime-main.js.map": "/homeowner/static/js/runtime-main.e5a489f0.js.map",
+    "static/css/2.0624914a.chunk.css": "/homeowner/static/css/2.0624914a.chunk.css",
+    "static/js/2.c469f05a.chunk.js": "/homeowner/static/js/2.c469f05a.chunk.js",
+    "static/js/2.c469f05a.chunk.js.map": "/homeowner/static/js/2.c469f05a.chunk.js.map",
+    "index.html": "/homeowner/index.html",
+    "precache-manifest.309a97bc264a46719f52a920ec4925be.js": "/homeowner/precache-manifest.309a97bc264a46719f52a920ec4925be.js",
+    "service-worker.js": "/homeowner/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/homeowner/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.c6e4c32f.chunk.css.map": "/homeowner/static/css/main.c6e4c32f.chunk.css.map",
+    "static/media/house.jpeg": "/homeowner/static/media/house.5edee41a.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5a489f0.js",
+    "static/css/2.0624914a.chunk.css",
+    "static/js/2.c469f05a.chunk.js",
+    "static/css/main.c6e4c32f.chunk.css",
+    "static/js/main.5de165ce.chunk.js"
+  ]
+}
