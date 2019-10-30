@@ -42,7 +42,7 @@ class Messages extends React.Component {
         this.setState({ priority })
     }
 
-    
+
     submitHandler() {
         const Message = Parse.Object.extend('Message');
         const myNewObject = new Message();
@@ -124,11 +124,13 @@ class Messages extends React.Component {
     parseIntialQuery() {
         const Message = Parse.Object.extend('Message');
         const query = new Parse.Query(Message);
-        query.equalTo("createdBy", this.props.acactiveuser);
+        
+        query.equalTo("createdBy", Parse.User.current);
+        console.log(this.props.activeuser)
         query.find().then((results) => {
             // You can use the "get" method to get the value of an attribute
             // Ex: response.get("<ATTRIBUTE_NAME>")
-
+            console.log(results)
             const messageArray = results.map((message) => new dataMessage(message));
             this.setState({ message: messageArray })
 

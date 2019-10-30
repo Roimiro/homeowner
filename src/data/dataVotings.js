@@ -7,6 +7,7 @@ class dataVotings{
         this.votes = voting.get('votes')
         this.user = voting.get('createdBy')
         this.options = voting.get('options')
+        this.myVote = voting.get('vote')
     }
 
 }

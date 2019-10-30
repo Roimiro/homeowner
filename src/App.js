@@ -20,6 +20,7 @@ class App extends React.Component {
   render() {
 
     const {activeUserId} = this.state;
+    if (activeUserId){
     return (
       <div>
         <NavHeader activeuser={this.handleActiveUser} />
@@ -48,6 +49,16 @@ class App extends React.Component {
       </Switch>
       </div>
     )
+      } else {
+        return (
+        <div>
+        <NavHeader activeuser={this.handleActiveUser} />
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        </div>
+        )
+      }
   }
 }
 export default App;

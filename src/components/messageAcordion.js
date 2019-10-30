@@ -22,7 +22,7 @@ class MessageAcordion extends React.Component {
                         {message.title}
                         
                     </Accordion.Toggle>
-                    <Button onClick={(e) => this.btnDeleteHandler(e,message.id)} variant="danger">Delete</Button>
+                    <Button className='btnDelete' onClick={(e) => this.btnDeleteHandler(e,message.id)} variant="danger">Delete</Button>
                 </Card.Header>
                 <Accordion.Collapse eventKey={index}>
                     <Card.Body>

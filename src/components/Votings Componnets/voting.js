@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col,Form,InputGroup,Button} from 'react-bootstrap'
+// import Chart from '../../components/doughnut'
 
 
 
@@ -16,16 +17,17 @@ class Voting extends React.Component {
         
         voteHandler(){
             this.props.voteClicked()
+            
         }
-    
+
     
     render() {
+        console.log(this.props.vote.options)
         const options = this.props.vote.options.map((option,index) => {
                          return  ( <option key={index} value={index}>{option}</option>)
-        }
-            )
-        return (
+        } )
         
+        return(
             <div>
                 <Row>
                     <Col>
@@ -43,6 +45,7 @@ class Voting extends React.Component {
                             <Button onClick={this.voteHandler}>Vote!</Button>
                         </InputGroup>
                         </Form>
+                      
                     </Col>
                 </Row>
             </div>
